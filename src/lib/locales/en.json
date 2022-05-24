@@ -1,0 +1,13 @@
+{
+  "global": {
+    "cancel": "Cancel",
+    "add": "Add",
+    "rename": "Rename",
+    "remove": "Remove",
+    "export": "Export",
+    "yes": "Yes",
+    "no": "No",
+    "dateFrom": "From",
+    "dateTo": "To"
+  }
+}
