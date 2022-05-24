@@ -2,3 +2,8 @@ node_modules
 build
 generateIcons
 public
+src/react-app-env.d.ts
+src/reportWebVitals.ts
+src/serviceWorkerRegistration.ts
+src/service-worker.ts
+src/setupTests.ts

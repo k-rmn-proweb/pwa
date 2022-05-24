@@ -5,7 +5,7 @@ const api = createApi({
   reducerPath: 'jsonPlaceholderApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com/' }),
   endpoints: (builder) => ({
-    getUsers: builder.query<IUser, undefined>({
+    getUsers: builder.query<IUser[], undefined>({
       query: () => `users`,
     }),
   }),
