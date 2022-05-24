@@ -63,7 +63,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "icons": "node generateIcons/index.js",
-    "eslint": "eslint src/**/*.{ts,tsx}"
+    "eslint": "eslint src/**/*.{ts,tsx}",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
