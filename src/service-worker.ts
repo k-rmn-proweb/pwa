@@ -51,9 +51,7 @@ registerRoute(
   ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'),
   new StaleWhileRevalidate({
     cacheName: 'images',
-    plugins: [
-      new ExpirationPlugin({ maxEntries: 50 }),
-    ],
+    plugins: [new ExpirationPlugin({ maxEntries: 50 })],
   })
 );
 
