@@ -1,9 +1,11 @@
 import { Alert } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { jsonPlaceholderHooks } from '../../store/api';
-import ChangeLocale from './components/ChangeLocale';
+import ChangeLanguage from './components/ChangeLanguage';
 import './index.css';
 
 function Main() {
+  const { t } = useTranslation<string>();
   const { useGetUsersQuery } = jsonPlaceholderHooks;
   const { isLoading, data, error } = useGetUsersQuery(undefined);
   let content = null;
@@ -11,7 +13,7 @@ function Main() {
   if (error) {
     content = <Alert message={error.toString()} type="error" />;
   } else if (isLoading) {
-    content = 'Loading...';
+    content = t('global.loading');
   } else if (data?.length) {
     content = data.map((item) => <div key={item.id}>{item.name}</div>);
   }
@@ -19,7 +21,7 @@ function Main() {
   return (
     <div>
       <div>
-        <ChangeLocale />
+        <ChangeLanguage />
       </div>
       <div>{content}</div>
     </div>

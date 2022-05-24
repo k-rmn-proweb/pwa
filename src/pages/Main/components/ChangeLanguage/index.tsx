@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import i18next from 'i18next';
 import { Select } from 'antd';
-import { languages } from '../../../../lib/locales';
+import { languages, changeLanguage } from '../../../../lib/locales';
 
-function ChangeLocale() {
+function ChangeLanguage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = async (value: string) => {
@@ -12,7 +12,7 @@ function ChangeLocale() {
     }
 
     setIsLoading(true);
-    await i18next.changeLanguage(value);
+    await changeLanguage(value);
     setIsLoading(false);
   };
 
@@ -24,7 +24,7 @@ function ChangeLocale() {
       dropdownMatchSelectWidth={false}
       onChange={handleChange}
     >
-      {languages.map((value) => (
+      {languages.map((value: string) => (
         <Select.Option key={value} value={value}>
           {value}
         </Select.Option>
@@ -33,4 +33,4 @@ function ChangeLocale() {
   );
 }
 
-export default ChangeLocale;
+export default ChangeLanguage;

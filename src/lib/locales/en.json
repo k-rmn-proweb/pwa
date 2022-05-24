@@ -1,6 +1,7 @@
 {
   "global": {
     "cancel": "Cancel",
+    "loading": "Loading...",
     "add": "Add",
     "rename": "Rename",
     "remove": "Remove",
