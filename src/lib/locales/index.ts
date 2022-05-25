@@ -1,18 +1,27 @@
 import i18next from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-export const languages: string[] = ['ru', 'en'];
+interface ILanguage {
+  key: string;
+  value: string;
+}
+
+export const languages: ILanguage[] = [
+  { key: 'ru', value: 'ru-RU' },
+  { key: 'en', value: 'en-US' },
+];
 
 export const changeLanguage = async (language: string) => {
-  const data = await import(`./${language}.json`);
+  if (!i18next.getDataByLanguage(language)) {
+    const data = await import(`./${language}.json`);
+    i18next.addResourceBundle(language, 'translations', data, true, true);
+  }
   await i18next.changeLanguage(language);
-  i18next.addResourceBundle(language, 'translations', data, true, true);
 };
 
 export const initLocales = async () => {
-  await i18next.use(initReactI18next).init({
-    fallbackLng: 'en',
-    lng: 'en',
+  await i18next.use(initReactI18next).use(LanguageDetector).init({
     debug: false,
     ns: 'translations',
     resources: {},

@@ -24,9 +24,9 @@ function ChangeLanguage() {
       dropdownMatchSelectWidth={false}
       onChange={handleChange}
     >
-      {languages.map((value: string) => (
-        <Select.Option key={value} value={value}>
-          {value}
+      {languages.map((lang) => (
+        <Select.Option key={lang.key} value={lang.value}>
+          {lang.key}
         </Select.Option>
       ))}
     </Select>
