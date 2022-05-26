@@ -1,4 +1,4 @@
-import { Image, Alert } from 'antd';
+import { Image, Alert, Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getPhotos, getAlbumById } from '../../store/api/jsonPlaceholderApi/hooks';
@@ -25,9 +25,13 @@ export default function Album() {
   } else if (data?.length) {
     content = (
       <Image.PreviewGroup>
-        {data.map((item) => (
-          <Image width={200} key={item.id} src={item.url} />
-        ))}
+        <Row gutter={[24, 24]}>
+          {data.map((item) => (
+            <Col xs={24} sm={12} md={8} lg={6} xl={4}>
+              <Image key={item.id} src={item.url} />
+            </Col>
+          ))}
+        </Row>
       </Image.PreviewGroup>
     );
   }

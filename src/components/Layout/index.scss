@@ -1,7 +1,12 @@
 @import '../../assets/global';
 
 .#{$prefix}-layout {
+  &__header {
+    .ant-page-header-heading {
+      flex-wrap: nowrap !important;
+    }
+  }
   &__content {
-    padding: 0 10px;
+    padding: 24px;
   }
 }

@@ -15,7 +15,7 @@ function Layout({ children, onBack, title }: ILayout) {
   return (
     <div className={layoutBem()}>
       <PageHeader
-        className="site-page-header"
+        className={layoutBem('header')}
         title={title}
         onBack={onBack}
         extra={[<ChangeLanguage key="1" />]}
