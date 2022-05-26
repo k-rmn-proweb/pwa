@@ -1,4 +1,4 @@
-import { Alert } from 'antd';
+import { Alert, Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { getAlbums } from '../../store/api/jsonPlaceholderApi/hooks';
 import AlbumItem from './components/AlbumItem';
@@ -15,7 +15,15 @@ function Main() {
   } else if (isLoading) {
     content = t('global.loading');
   } else if (data?.length) {
-    content = data.map((item) => <AlbumItem key={item.id} data={item} />);
+    content = (
+      <Row gutter={[24, 24]}>
+        {data.map((item) => (
+          <Col xs={24} sm={12} md={8} lg={6}>
+            <AlbumItem key={item.id} data={item} />
+          </Col>
+        ))}
+      </Row>
+    );
   }
 
   return <Layout title={t('global.albums')}>{content}</Layout>;

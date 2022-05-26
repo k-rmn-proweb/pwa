@@ -1,4 +1,5 @@
 import React, { KeyboardEventHandler } from 'react';
+import { Card } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IAlbum } from '../../../../store/api/jsonPlaceholderApi/types';
@@ -8,6 +9,8 @@ import serviceRouter from '../../../../lib/router/service';
 interface IAlbumItem {
   data: IAlbum;
 }
+
+const { Meta } = Card;
 
 export default function AlbumItem({ data }: IAlbumItem) {
   const { t } = useTranslation<string>();
@@ -24,14 +27,14 @@ export default function AlbumItem({ data }: IAlbumItem) {
 
   const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
     if (event.code === 'Space' || event.keyCode === 32) {
+      event.preventDefault();
       openAlbum();
     }
   };
 
   return (
-    <div role="button" tabIndex={0} onKeyDown={handleKeyDown} onClick={handleClick}>
-      <div>{data.title}</div>
-      <div>{`${t('global.author')}: ${user ? user.name : t('global.authorEmpty')}`}</div>
-    </div>
+    <Card hoverable role="button" onClick={handleClick} tabIndex={0} onKeyDown={handleKeyDown}>
+      <Meta title={data.title} description={`${t('global.author')}: ${user ? user.name : t('global.authorEmpty')}`} />
+    </Card>
   );
 }
