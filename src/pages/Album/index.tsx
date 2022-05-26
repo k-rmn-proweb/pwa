@@ -1,10 +1,9 @@
 import { Image, Alert } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getPhotos, getAlbumById } from '../../store/api/jsonPlaceholderApi/api';
+import { getPhotos, getAlbumById } from '../../store/api/jsonPlaceholderApi/hooks';
 import Layout from '../../components/Layout';
 import serviceRouter from '../../lib/router/service';
-import './index.css';
 
 export default function Album() {
   const navigate = useNavigate();

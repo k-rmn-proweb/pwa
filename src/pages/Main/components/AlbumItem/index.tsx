@@ -2,7 +2,7 @@ import React, { KeyboardEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IAlbum } from '../../../../store/api/jsonPlaceholderApi/types';
-import { getUserById } from '../../../../store/api/jsonPlaceholderApi/api';
+import { getUserById } from '../../../../store/api/jsonPlaceholderApi/hooks';
 import serviceRouter from '../../../../lib/router/service';
 
 interface IAlbumItem {

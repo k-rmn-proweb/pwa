@@ -1,6 +1,6 @@
 import { Alert } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { getAlbums } from '../../store/api/jsonPlaceholderApi/api';
+import { getAlbums } from '../../store/api/jsonPlaceholderApi/hooks';
 import AlbumItem from './components/AlbumItem';
 import Layout from '../../components/Layout';
 import './index.css';

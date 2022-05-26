@@ -1,0 +1,7 @@
+@import '../../assets/global';
+
+.#{$prefix}-layout {
+  &__content {
+    padding: 0 10px;
+  }
+}

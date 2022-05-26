@@ -1,6 +1,8 @@
 import React from 'react';
 import { PageHeader } from 'antd';
 import ChangeLanguage from '../ChangeLanguage';
+import bem from '../../lib/bem';
+import './index.scss';
 
 interface ILayout {
   title: string;
@@ -9,8 +11,9 @@ interface ILayout {
 }
 
 function Layout({ children, onBack, title }: ILayout) {
+  const layoutBem = bem('layout');
   return (
-    <div>
+    <div className={layoutBem()}>
       <PageHeader
         className="site-page-header"
         title={title}
@@ -18,7 +21,7 @@ function Layout({ children, onBack, title }: ILayout) {
         extra={[<ChangeLanguage key="1" />]}
         style={{ background: '#EEEEEE' }}
       />
-      <div>{children}</div>
+      <div className={layoutBem('content')}>{children}</div>
     </div>
   );
 }
