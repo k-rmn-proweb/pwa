@@ -1,14 +1,23 @@
 import { Image, Alert } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
-import { getPhotos } from '../../store/api/jsonPlaceholderApi/api';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getPhotos, getAlbumById } from '../../store/api/jsonPlaceholderApi/api';
+import Layout from '../../components/Layout';
+import serviceRouter from '../../lib/router/service';
 import './index.css';
 
 export default function Album() {
+  const navigate = useNavigate();
   const { t } = useTranslation<string>();
   const { albumId = 0 } = useParams();
-  const { data, error, isLoading } = getPhotos(Number(albumId));
+  const id = Number(albumId);
+  const { data, error, isLoading } = getPhotos(id);
+  const { data: album } = getAlbumById(id);
   let content = null;
+
+  const handleBack = () => {
+    navigate(serviceRouter.goToMain());
+  };
 
   if (error) {
     content = <Alert message={error.toString()} type="error" />;
@@ -18,11 +27,15 @@ export default function Album() {
     content = (
       <Image.PreviewGroup>
         {data.map((item) => (
-          <Image width={200} src={item.url} />
+          <Image width={200} key={item.id} src={item.url} />
         ))}
       </Image.PreviewGroup>
     );
   }
 
-  return <div>{content}</div>;
+  return (
+    <Layout title={album ? album.title : t('global.albumEmpty')} onBack={handleBack}>
+      {content}
+    </Layout>
+  );
 }

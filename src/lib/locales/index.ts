@@ -8,8 +8,8 @@ interface ILanguage {
 }
 
 export const languages: ILanguage[] = [
-  { key: 'ru', value: 'ru-RU' },
-  { key: 'en', value: 'en-US' },
+  { key: 'Ru', value: 'ru-RU' },
+  { key: 'En', value: 'en-US' },
 ];
 
 export const changeLanguage = async (language: string) => {

@@ -1,8 +1,8 @@
 import { Alert } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { getAlbums } from '../../store/api/jsonPlaceholderApi/api';
-import ChangeLanguage from './components/ChangeLanguage';
 import AlbumItem from './components/AlbumItem';
+import Layout from '../../components/Layout';
 import './index.css';
 
 function Main() {
@@ -18,14 +18,7 @@ function Main() {
     content = data.map((item) => <AlbumItem key={item.id} data={item} />);
   }
 
-  return (
-    <div>
-      <div>
-        <ChangeLanguage />
-      </div>
-      <div>{content}</div>
-    </div>
-  );
+  return <Layout title="Progressive Web Applications">{content}</Layout>;
 }
 
 export default Main;

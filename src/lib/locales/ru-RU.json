@@ -1,6 +1,7 @@
 {
   "global": {
     "album": "Альбом",
+    "albumEmpty": "Без названия",
     "author": "Автор",
     "authorEmpty": "аноним",
     "loading": "Загрузка..."

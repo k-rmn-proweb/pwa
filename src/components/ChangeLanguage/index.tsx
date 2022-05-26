@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import i18next from 'i18next';
 import { Select } from 'antd';
-import { languages, changeLanguage } from '../../../../lib/locales';
+import { languages, changeLanguage } from '../../lib/locales';
 
 function ChangeLanguage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,13 +17,7 @@ function ChangeLanguage() {
   };
 
   return (
-    <Select
-      value={i18next.language}
-      disabled={isLoading}
-      style={{ width: 120 }}
-      dropdownMatchSelectWidth={false}
-      onChange={handleChange}
-    >
+    <Select value={i18next.language} disabled={isLoading} dropdownMatchSelectWidth={false} onChange={handleChange}>
       {languages.map((lang) => (
         <Select.Option key={lang.key} value={lang.value}>
           {lang.key}

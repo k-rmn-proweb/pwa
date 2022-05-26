@@ -1,8 +1,12 @@
 import { Alert } from 'antd';
-import './index.css';
+import Layout from '../../components/Layout';
 
 function Error404() {
-  return <Alert message={404} type="error" />;
+  return (
+    <Layout title="Progressive Web Applications">
+      <Alert message={404} type="error" />
+    </Layout>
+  );
 }
 
 export default Error404;
