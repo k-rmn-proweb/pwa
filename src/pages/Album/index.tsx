@@ -1,5 +1,4 @@
 import { Alert } from 'antd';
-import { jsonPlaceholderHooks } from '../../store/api';
 import './index.css';
 
 function Album() {

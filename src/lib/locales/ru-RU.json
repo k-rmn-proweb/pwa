@@ -1,14 +1,5 @@
 {
   "global": {
-    "cancel": "Cancel",
-    "loading": "Загрузка...",
-    "add": "Add",
-    "rename": "Rename",
-    "remove": "Remove",
-    "export": "Export",
-    "yes": "Yes",
-    "no": "No",
-    "dateFrom": "From",
-    "dateTo": "To"
+    "loading": "Загрузка..."
   }
 }
