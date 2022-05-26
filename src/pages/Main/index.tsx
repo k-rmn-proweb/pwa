@@ -18,7 +18,7 @@ function Main() {
     content = data.map((item) => <AlbumItem key={item.id} data={item} />);
   }
 
-  return <Layout title="Progressive Web Applications">{content}</Layout>;
+  return <Layout title={t('global.albums')}>{content}</Layout>;
 }
 
 export default Main;

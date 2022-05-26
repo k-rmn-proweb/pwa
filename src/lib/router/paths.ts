@@ -1,9 +1,9 @@
-const MAIN = 'pwa';
-const ALBUMS = `${MAIN}/albums`;
+const PWA = '/pwa';
+const ALBUMS = '/albums';
 
 export const paths = {
-  MAIN,
-  ALBUMS,
-  ALBUM: `${ALBUMS}/:albumId`,
+  MAIN: PWA,
+  ALBUMS: `${PWA}${ALBUMS}`,
+  ALBUM: `${PWA}${ALBUMS}/:albumId`,
   NOTFOUND: `*`,
 };

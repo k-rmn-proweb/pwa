@@ -11,7 +11,13 @@ interface ILayout {
 function Layout({ children, onBack, title }: ILayout) {
   return (
     <div>
-      <PageHeader className="site-page-header" title={title} onBack={onBack} extra={[<ChangeLanguage />]} />
+      <PageHeader
+        className="site-page-header"
+        title={title}
+        onBack={onBack}
+        extra={[<ChangeLanguage key="1" />]}
+        style={{ background: '#EEEEEE' }}
+      />
       <div>{children}</div>
     </div>
   );

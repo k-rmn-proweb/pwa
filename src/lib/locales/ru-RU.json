@@ -1,6 +1,6 @@
 {
   "global": {
-    "album": "Альбом",
+    "albums": "Альбомы",
     "albumEmpty": "Без названия",
     "author": "Автор",
     "authorEmpty": "аноним",

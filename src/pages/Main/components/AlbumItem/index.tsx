@@ -30,9 +30,7 @@ export default function AlbumItem({ data }: IAlbumItem) {
 
   return (
     <div role="button" tabIndex={0} onKeyDown={handleKeyDown} onClick={handleClick}>
-      <div>
-        {t('global.album')}: {data.title}
-      </div>
+      <div>{data.title}</div>
       <div>{`${t('global.author')}: ${user ? user.name : t('global.authorEmpty')}`}</div>
     </div>
   );

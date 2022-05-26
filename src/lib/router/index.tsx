@@ -6,7 +6,6 @@ import Page404 from '../../pages/404';
 import { paths } from './paths';
 
 export const routes: RouteObject[] = [
-  { path: '/', element: <Main /> },
   { path: paths.MAIN, element: <Main /> },
   { path: paths.ALBUMS, element: <Main /> },
   { path: paths.ALBUM, element: <Album /> },
