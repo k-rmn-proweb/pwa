@@ -3,5 +3,12 @@
 .ant-image-preview-operations,
 .ant-image-preview-switch-left,
 .ant-image-preview-switch-right {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  .ant-image-preview-operations-progress {
+    left: 24px;
+    transform: none;
+  }
 }
