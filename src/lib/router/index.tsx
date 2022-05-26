@@ -6,13 +6,9 @@ import Page404 from '../../pages/404';
 import { paths } from './paths';
 
 export const routes: RouteObject[] = [
-  {
-    path: paths.MAIN,
-    element: <Main />,
-    children: [
-      // { index: true, element: <Main /> },
-      { path: paths.ALBUMS, element: <Album /> },
-      { path: paths.NOTFOUND, element: <Page404 /> },
-    ],
-  },
+  { path: '/', element: <Main /> },
+  { path: paths.MAIN, element: <Main /> },
+  { path: paths.ALBUMS, element: <Main /> },
+  { path: paths.ALBUM, element: <Album /> },
+  { path: paths.NOTFOUND, element: <Page404 /> },
 ];

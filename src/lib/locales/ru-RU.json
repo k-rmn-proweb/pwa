@@ -1,5 +1,8 @@
 {
   "global": {
+    "album": "Альбом",
+    "author": "Автор",
+    "authorEmpty": "аноним",
     "loading": "Загрузка..."
   }
 }

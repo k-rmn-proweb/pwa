@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IUser, IAlbum } from './types';
+import { IUser, IAlbum, IPhoto } from './types';
 
 const api = createApi({
   reducerPath: 'jsonPlaceholderApi',
@@ -10,6 +10,9 @@ const api = createApi({
     }),
     getAlbums: builder.query<IAlbum[], void>({
       query: () => `albums`,
+    }),
+    getPhotos: builder.query<IPhoto[], number>({
+      query: (albumId) => `albums/${albumId}/photos`,
     }),
   }),
 });
