@@ -27,8 +27,8 @@ export default function Album() {
       <Image.PreviewGroup>
         <Row gutter={[24, 24]}>
           {data.map((item) => (
-            <Col xs={24} sm={12} md={8} lg={6} xl={4}>
-              <Image key={item.id} src={item.url} />
+            <Col key={item.id} xs={24} sm={12} md={8} lg={6} xl={4}>
+              <Image src={`${item.url}.png`} />
             </Col>
           ))}
         </Row>

@@ -18,8 +18,8 @@ function Main() {
     content = (
       <Row gutter={[24, 24]}>
         {data.map((item) => (
-          <Col xs={24} sm={12} md={8} lg={6}>
-            <AlbumItem key={item.id} data={item} />
+          <Col key={item.id} xs={24} sm={12} md={8} lg={6}>
+            <AlbumItem data={item} />
           </Col>
         ))}
       </Row>
