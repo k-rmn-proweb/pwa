@@ -2,10 +2,9 @@
 // eslint-disable no-restricted-globals
 
 import { clientsClaim, setCacheNameDetails } from 'workbox-core';
-import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
+import { NetworkFirst } from 'workbox-strategies';
 import { imageCache } from 'workbox-recipes';
 
 declare const self: ServiceWorkerGlobalScope;
@@ -50,16 +49,6 @@ registerRoute(
 
 // кеширование api запросов
 registerRoute(new RegExp('https://jsonplaceholder.typicode.com/*'), new NetworkFirst());
-
-// An example runtime caching route for requests that aren't handled by the
-// precache, in this case same-origin .png requests like those from in public/
-// registerRoute(
-//   ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'),
-//   new StaleWhileRevalidate({
-//     cacheName: 'images',
-//     plugins: [new ExpirationPlugin({ maxEntries: 100 })],
-//   })
-// );
 
 // кеширование картинок
 imageCache({ cacheName: 'images', maxEntries: 100, maxAgeSeconds: 24 * 60 * 60 });
