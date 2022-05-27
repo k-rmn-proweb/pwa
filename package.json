@@ -38,6 +38,10 @@
     "prettier": "^2.6.2",
     "react-scripts": "5.0.1",
     "sass": "^1.52.1",
+    "stylelint": "^14.8.5",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-scss": "^4.2.0",
     "typescript": "^4.6.4",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.5.3",
@@ -58,7 +62,8 @@
       "prettier --write",
       "git add"
     ],
-    "src/**/*.{js,jsx,ts,tsx}": "eslint"
+    "src/**/*.{js,jsx,ts,tsx}": "eslint",
+    "src/**/*.{scss}": "stylelint"
   },
   "scripts": {
     "start": "react-scripts start",
