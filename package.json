@@ -58,7 +58,7 @@
     "workbox-streams": "^6.5.3"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write",
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --check",
     "src/**/*.{js,jsx,ts,tsx}": "eslint",
     "src/**/*.scss": "stylelint"
   },
