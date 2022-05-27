@@ -1,16 +1,19 @@
 /// <reference lib="webworker" />
 // eslint-disable no-restricted-globals
 
-import { clientsClaim } from 'workbox-core';
+import { clientsClaim, setCacheNameDetails } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import { StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
+import { imageCache } from 'workbox-recipes';
 
 declare const self: ServiceWorkerGlobalScope;
 
 // Позволяет контролировать уже открытые веб-страницы сразу после публикации нового сервис-воркер и его активации
 clientsClaim();
+
+setCacheNameDetails({ precache: 'static', runtime: 'runtime' });
 
 // Кеширует файлы проекта
 // https://cra.link/PWA
@@ -45,15 +48,21 @@ registerRoute(
   createHandlerBoundToURL(`${process.env.PUBLIC_URL}/index.html`)
 );
 
+// кеширование api запросов
+registerRoute(new RegExp('https://jsonplaceholder.typicode.com/*'), new NetworkFirst());
+
 // An example runtime caching route for requests that aren't handled by the
 // precache, in this case same-origin .png requests like those from in public/
-registerRoute(
-  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'),
-  new StaleWhileRevalidate({
-    cacheName: 'images',
-    plugins: [new ExpirationPlugin({ maxEntries: 100 })],
-  })
-);
+// registerRoute(
+//   ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'),
+//   new StaleWhileRevalidate({
+//     cacheName: 'images',
+//     plugins: [new ExpirationPlugin({ maxEntries: 100 })],
+//   })
+// );
+
+// кеширование картинок
+imageCache({ cacheName: 'images', maxEntries: 100, maxAgeSeconds: 24 * 60 * 60 });
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
