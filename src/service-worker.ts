@@ -47,11 +47,11 @@ registerRoute(
   createHandlerBoundToURL(`${process.env.PUBLIC_URL}/index.html`)
 );
 
-// кеширование api запросов
-registerRoute(new RegExp('https://jsonplaceholder.typicode.com/*'), new NetworkFirst());
-
 // кеширование картинок
 imageCache({ cacheName: 'images', maxEntries: 100, maxAgeSeconds: 24 * 60 * 60 });
+
+// кеширование api запросов
+registerRoute(new RegExp('https://jsonplaceholder.typicode.com/*'), new NetworkFirst());
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})

@@ -14,13 +14,7 @@ function Layout({ children, onBack, title }: ILayout) {
   const layoutBem = bem('layout');
   return (
     <div className={layoutBem()}>
-      <PageHeader
-        className={layoutBem('header')}
-        title={title}
-        onBack={onBack}
-        extra={[<ChangeLanguage key="1" />]}
-        style={{ background: '#EEEEEE' }}
-      />
+      <PageHeader className={layoutBem('header')} title={title} onBack={onBack} extra={[<ChangeLanguage key="1" />]} />
       <div className={layoutBem('content')}>{children}</div>
     </div>
   );
