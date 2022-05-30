@@ -1,9 +1,10 @@
 import { Image, Alert, Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getPhotos, getAlbumById } from '../../store/api/jsonPlaceholderApi/hooks';
+import { getPhotos, getAlbumById, parseError } from '../../store/api/jsonPlaceholderApi/hooks';
 import Layout from '../../components/Layout';
 import serviceRouter from '../../lib/router/service';
+import fallback from './fallback.png';
 
 export default function Album() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function Album() {
   };
 
   if (error) {
-    content = <Alert message={error.toString()} type="error" />;
+    content = <Alert message={parseError(error)} type="error" />;
   } else if (isLoading) {
     content = t('global.loading');
   } else if (data?.length) {
@@ -28,7 +29,7 @@ export default function Album() {
         <Row gutter={[24, 24]}>
           {data.map((item) => (
             <Col key={item.id} xs={24} sm={12} md={8} lg={6} xl={4}>
-              <Image src={`${item.url}.png`} />
+              <Image src={`${item.url}.png`} fallback={fallback} />
             </Col>
           ))}
         </Row>

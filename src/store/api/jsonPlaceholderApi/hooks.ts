@@ -1,4 +1,18 @@
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { SerializedError } from '@reduxjs/toolkit';
 import api from './index';
+
+export const parseError = (error: FetchBaseQueryError | SerializedError | undefined) => {
+  if (!error) {
+    return '';
+  }
+
+  if ('status' in error) {
+    return 'error' in error ? error.error : JSON.stringify(error.data);
+  }
+
+  return error?.message?.toString() || '';
+};
 
 export const getAlbums = () => api.useGetAlbumsQuery();
 
