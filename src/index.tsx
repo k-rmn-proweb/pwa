@@ -25,21 +25,15 @@ root.render(
 );
 
 serviceWorkerRegistration.register({
-  onUpdate: (registration) => {
+  onUpdate: (wb) => {
     Modal.confirm({
       title: 'Установить обновление?',
+      content: 'После установки обновлений, приложение автоматичеки перезагрузиться',
       centered: true,
       maskClosable: true,
       onOk: () => {
-        registration?.waiting?.postMessage({ type: 'SKIP_WAITING' });
+        wb.messageSkipWaiting();
       },
-    });
-  },
-  onSuccess: () => {
-    Modal.info({
-      title: 'Приложение готово к автономной работе',
-      centered: true,
-      maskClosable: true,
     });
   },
 });
