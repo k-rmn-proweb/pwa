@@ -1,7 +1,7 @@
 {
   "name": "prototype-pwa",
   "version": "0.1.0",
-  "homepage": "https://aleksandr09332.github.io/pwa",
+  "homepage": "https://github.com/k-rmn-proweb/pwa",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
