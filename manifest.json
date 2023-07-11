@@ -375,7 +375,7 @@
       "purpose": "any"
     }
   ],
-  "start_url": "https://k-rmn-proweb.github.io/react-pwa/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
