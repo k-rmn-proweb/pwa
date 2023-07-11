@@ -2,7 +2,7 @@
 
 ## Сайт
 
-https://aleksandr09332.github.io/pwa/
+https://k-rmn-proweb.github.io/pwa/
 
 ## Команды
 
